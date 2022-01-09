@@ -24,7 +24,7 @@ jobs:
         pip install pylint black mypy flake8
     - name: Analysing the code with pylint
       run: |
-        pylint `ls -R|grep .py$|xargs`
+        pylint --disable-msg=C0330 .
     - name: Analysing the code with flake8
       run: |
         flake8 --ignore=E712, E251, W503, E203 --max-line-length=120 . 
