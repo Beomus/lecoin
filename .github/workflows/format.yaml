@@ -28,7 +28,7 @@ jobs:
     # pylint doesn't work right now
     - name: Analysing the code with mypy
       run: |
-        mypy .
+        mypy --ignore-missing-imports --pretty .
     - name: Formatting the code with black
       run: |
         black . --check
