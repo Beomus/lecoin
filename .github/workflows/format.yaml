@@ -26,12 +26,12 @@ jobs:
     #   run: |
     #     pylint .
     # pylint doesn't work right now
-    - name: Analysing the code with flake8
-      run: |
-        flake8 --ignore=E712, E251, W503, E203 --max-line-length=120 . 
     - name: Analysing the code with mypy
       run: |
         mypy .
     - name: Formatting the code with black
       run: |
         black . --check
+    - name: Analysing the code with flake8
+      run: |
+        flake8 --ignore=E712, E251, W503, E203 --max-line-length=120 . 
