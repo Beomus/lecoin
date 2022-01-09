@@ -2,13 +2,13 @@ import json
 
 from datetime import datetime
 from hashlib import sha256
-from typing import Optional
+from typing import List, Optional
 
 
 class Blockchain:
     def __init__(self) -> None:
-        self.chain = []
-        self.pending_transactions = []
+        self.chain: List[dict] = []
+        self.pending_transactions: List[dict] = []
 
         # Create the genesis block
         print("Creating genesis block")
@@ -41,11 +41,13 @@ class Blockchain:
         recipient: str,
         amount: float,
     ) -> None:
-        self.pending_transactions.append({
-            "recipient": recipient,
-            "sender": sender,
-            "amount": amount,
-        })
+        self.pending_transactions.append(
+            {
+                "recipient": recipient,
+                "sender": sender,
+                "amount": amount,
+            }
+        )
 
     @staticmethod
     def hash(block: dict) -> str:
@@ -56,7 +58,7 @@ class Blockchain:
         return sha256(block_string).hexdigest()
 
     @property
-    def last_block(self) -> Optional(dict, None):
+    def last_block(self) -> Optional[dict]:
         # Get the last block in the chain
         return self.chain[-1] if self.chain else None
 

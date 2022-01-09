@@ -11,7 +11,8 @@ class ConnectionPool:
         Sends a welcome message to a newly connected client
         """
 
-        message = dedent(f"""
+        message = dedent(
+            f"""
         ===
         Welcome {writer.nickname}!
 
@@ -22,7 +23,8 @@ class ConnectionPool:
             - /list: lists all connected users
             - /quit: quits connection
         ===
-        """)
+        """
+        )
 
         writer.write(f"{message}\n".encode())
 
@@ -129,6 +131,7 @@ async def main():
 
     async with server:
         await server.serve_forever()
+
 
 connection_pool = ConnectionPool()
 asyncio.run(main())

@@ -22,4 +22,5 @@ async def main():
 
     print(f"{time.time() - start_time:.2f}s: Program end")
 
+
 asyncio.run(main())
