@@ -7,7 +7,7 @@ from time import time
 from hashlib import sha256
 from typing import List, Optional
 
-logger = structlog.getLogger("blockchain")
+logger = structlog.getLogger(__name__)
 
 
 class Blockchain:
@@ -41,7 +41,7 @@ class Blockchain:
         height: int,
         transactions: List[dict],
         previous_hash: str,
-        nonce: int,
+        nonce: str,
         target: str,
         timestamp: Optional[float] = None
     ) -> dict:
@@ -93,7 +93,7 @@ class Blockchain:
         # TODO: Add proper validation logic here!
         self.chain.append(block)
 
-    def recalculate_target(self, block_index: int) -> int:
+    def recalculate_target(self, block_index: int) -> str:
         """
         Returns the target number to mine a new block.
         """

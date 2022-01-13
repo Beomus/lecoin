@@ -1,3 +1,5 @@
+from typing import List
+
 import structlog
 
 from more_itertools import take
@@ -30,6 +32,6 @@ class ConnectionPool:
         self.connection_pool.pop(address)
         logger.info("Removed peer from pool", address=address)
 
-    def get_alive_peers(self, count: int) -> list[str]:
+    def get_alive_peers(self, count: int) -> List[StreamWriter]:
         # TODO: sort these by most active
         return take(count, self.connection_pool.items())

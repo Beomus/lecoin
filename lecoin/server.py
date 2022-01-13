@@ -4,13 +4,12 @@ from asyncio import StreamReader, StreamWriter
 import structlog
 from marshmallow.exceptions import MarshmallowError
 
-from blockchain import Blockchain
-from connections import ConnectionPool
-from messages import BaseSchema
-from peers import P2PProtocol
-from utils import get_external_ip
+from .blockchain import Blockchain
+from .connections import ConnectionPool
+from .messages import BaseSchema
+from .utils import get_external_ip
 
-logger = structlog.getLogger()
+logger = structlog.getLogger(__name__)
 
 
 class Server:
@@ -18,7 +17,7 @@ class Server:
         self,
         blockchain: Blockchain,
         connection_pool: ConnectionPool,
-        p2p_protocol: P2PProtocol
+        p2p_protocol
     ) -> None:
         self.blockchain = blockchain
         self.connection_pool = connection_pool
