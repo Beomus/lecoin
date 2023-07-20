@@ -12,7 +12,7 @@ structlog = "^21.5.0"
 marshmallow = "^3.14.1"
 colorama = "^0.4.4"
 marshmallow-oneofschema = "^3.0.1"
-aiohttp = "^3.8.1"
+aiohttp = "^3.8.5"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
